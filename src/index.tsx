@@ -1,6 +1,9 @@
+import "reflect-metadata";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { DependencyInjectionProvider } from "../IOC/DependencyInjectionContext";
+import appContainer from "../IOC/container";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -8,7 +11,7 @@ if (!rootElement) {
 }
 const root = createRoot(rootElement);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <DependencyInjectionProvider container={appContainer}>
+    <App name="hello there" />
+  </DependencyInjectionProvider>
 );

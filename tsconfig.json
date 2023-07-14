@@ -1,13 +1,21 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": false,
+    "target": "ES2017",
+    "lib": ["ES2022", "dom"],
+    "types": ["reflect-metadata", "node"],
+    "module": "ES2022",
     "moduleResolution": "node",
-    "esModuleInterop": true
-  }
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "jsx": "react"
+  },
+  "exclude": ["node_modules"]
 }

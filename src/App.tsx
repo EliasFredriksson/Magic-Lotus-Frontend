@@ -1,11 +1,24 @@
-import React from "react";
+import React, { FC, useEffect } from "react";
+import { withDependencyInjection } from "../IOC/withDependencyInjection";
+import AppPresenter from "./AppPresenter";
 
-const App: React.FC = () => {
+interface AppProps {
+  presenter: AppPresenter;
+  name: string;
+}
+
+const App: FC<AppProps> = ({ presenter, name }) => {
+  useEffect(() => {
+    presenter.initializeApplication();
+  }, [presenter]);
+
   return (
     <>
-      <h1>HELLO WORLD</h1>
+      <h1>{name}</h1>
     </>
   );
 };
 
-export default App;
+export default withDependencyInjection({
+  presenter: AppPresenter,
+})(App);

@@ -1,5 +1,5 @@
-import path from "path";
-import url from "url";
+import path from "node:path";
+import url from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
@@ -12,6 +12,7 @@ const stylesHandler = isProduction
   : "style-loader";
 
 const config = {
+  mode: null,
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
@@ -30,7 +31,7 @@ const config = {
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-  ],
+  ] as any[],
   module: {
     rules: [
       {
