@@ -23,7 +23,6 @@ const config: webpack.Configuration = {
     host: "localhost",
     port: 3000,
     hot: true,
-    https: true,
   },
   devtool: "source-map",
   plugins: [

@@ -1,7 +1,12 @@
 import React from "react";
+import "./Landing.scss";
 
 const Landing: React.FC = () => {
-  return <h1>Hello World! With webpack.</h1>;
+  return (
+    <div className="view__landing">
+      <h1>Hello World! With webpack.</h1>
+    </div>
+  );
 };
 
 export default Landing;
