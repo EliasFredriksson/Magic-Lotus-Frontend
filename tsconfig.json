@@ -15,7 +15,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "jsx": "react",
-    "rootDir": "."
+    "rootDir": ".",
+    "useDefineForClassFields": true
   },
   "exclude": ["node_modules"],
   "include": ["src"],

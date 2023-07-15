@@ -1,24 +1,29 @@
 import React, { FC, useEffect } from "react";
 import { withDependencyInjection } from "../IOC/withDependencyInjection";
 import AppPresenter from "./AppPresenter";
+import { observer } from "mobx-react-lite";
 
 interface AppProps {
   presenter: AppPresenter;
   name: string;
 }
 
-const App: FC<AppProps> = ({ presenter, name }) => {
+const App: FC<AppProps> = ({ presenter }) => {
   useEffect(() => {
     presenter.initializeApplication();
   }, [presenter]);
 
   return (
     <>
-      <h1>{name}</h1>
+      {presenter.viewModel.isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <h1>{presenter.viewModel.name}</h1>
+      )}
     </>
   );
 };
 
 export default withDependencyInjection({
   presenter: AppPresenter,
-})(App);
+})(observer(App));

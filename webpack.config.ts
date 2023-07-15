@@ -60,14 +60,12 @@ const config: webpack.Configuration = {
   },
 };
 
-export default config;
-
-// export default () => {
-//   if (isProduction) {
-//     config.mode = "production";
-//     config.plugins?.push(new MiniCssExtractPlugin());
-//   } else {
-//     config.mode = "development";
-//   }
-//   return config;
-// };
+export default () => {
+  if (isProduction) {
+    config.mode = "production";
+    config.plugins?.push(new MiniCssExtractPlugin());
+  } else {
+    config.mode = "development";
+  }
+  return config;
+};
