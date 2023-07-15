@@ -30,6 +30,10 @@ const config: webpack.Configuration = {
       template: "public/index.html",
     }),
 
+    new webpack.ProvidePlugin({
+      React: "react",
+    }),
+
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],

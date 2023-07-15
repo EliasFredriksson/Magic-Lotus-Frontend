@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import "./Landing.scss";
 
-const Landing: React.FC = () => {
+const Landing: FC = () => {
   return (
     <div className="view__landing">
       <h1>Hello World! With webpack.</h1>

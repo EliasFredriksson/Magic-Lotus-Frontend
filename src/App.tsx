@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { withDependencyInjection } from "../IOC/withDependencyInjection";
 import AppPresenter from "./AppPresenter";
 import { observer } from "mobx-react-lite";
