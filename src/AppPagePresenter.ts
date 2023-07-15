@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
 @injectable()
 export default class AppPagePresenter {
@@ -10,15 +10,25 @@ export default class AppPagePresenter {
     makeObservable(this, {
       firstName: observable,
       lastName: observable,
+      updateNames: action,
     });
   }
 
-  initializeApplication = () => {
+  initializeApplication = async () => {
     console.log("INITIALIZING APP...");
 
-    setTimeout(() => {
-      this.firstName = "Elias";
-      this.lastName = "Fredriksson";
-    }, 2000);
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 2000);
+    });
+
+    this.updateNames();
+    console.log("DONE!");
+  };
+
+  updateNames = (): void => {
+    this.firstName = "Elias";
+    this.lastName = "Fredriksson";
   };
 }

@@ -5,13 +5,12 @@ import { observer } from "mobx-react-lite";
 
 interface AppProps {
   presenter: AppPresenter;
-  name: string;
 }
 
 const App: FC<AppProps> = ({ presenter }) => {
   useEffect(() => {
     presenter.initializeApplication();
-  }, [presenter]);
+  }, []);
 
   return (
     <>
