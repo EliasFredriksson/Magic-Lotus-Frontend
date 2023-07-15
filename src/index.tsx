@@ -12,6 +12,6 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 root.render(
   <DependencyInjectionProvider container={appContainer}>
-    <App name="hello there" />
+    <App name="testing" />
   </DependencyInjectionProvider>
 );

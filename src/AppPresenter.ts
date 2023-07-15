@@ -16,7 +16,5 @@ export default class AppPresenter {
       "TEST_KEY",
       "the best value"
     );
-
-    return;
   };
 }

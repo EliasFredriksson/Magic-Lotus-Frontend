@@ -1,21 +1,33 @@
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 import { DependencyInjectionContext } from "./DependencyInjectionContext";
 
-export const withDependencyInjection = (identifiers: any) => {
-  return (Component: any) => {
-    return (props: any) => {
+export const withDependencyInjection = <TIdentifiers,>(
+  identifiers: TIdentifiers
+) => {
+  return <TProps,>(Component: FC<TProps>) => {
+    return (props: Omit<TProps, keyof TIdentifiers>) => {
       const { container } = useContext(DependencyInjectionContext);
 
       if (container) {
-        const finalProps = { ...props };
+        const injectedProps: TIdentifiers = Object.keys(identifiers).reduce(
+          (acc, key) => {
+            const identifierImplementation = container.get(identifiers[key]);
+            if (identifierImplementation) {
+              return {
+                ...acc,
+                [key]: identifierImplementation,
+              };
+            }
 
-        Object.keys(identifiers).forEach((key) => {
-          finalProps[key] = container.get(identifiers[key]);
-        });
+            return acc;
+          },
+          {} as TIdentifiers
+        );
 
-        return <Component {...finalProps} />;
+        // @ts-ignore
+        return <Component {...props} {...injectedProps} />;
       }
-
+      // @ts-ignore
       return <Component {...props} />;
     };
   };

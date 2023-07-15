@@ -1,12 +1,3 @@
 {
-  "tabWidth": 2,
-  "useTabs": false,
-  "overrides": [
-    {
-      "files": ["*.hbs", "**.svg"],
-      "options": {
-        "parser": "angular"
-      }
-    }
-  ]
+  "tabWidth": 2
 }
