@@ -1,6 +1,6 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../IOC/TYPES";
-import type IBrowserStorage from "./services/BrowserStorage/IBrowserStorage";
+import type { IBrowserStorage } from "./services/BrowserStorage/IBrowserStorage";
 import AppPagePresenter from "./AppPagePresenter";
 import { computed, makeObservable } from "mobx";
 

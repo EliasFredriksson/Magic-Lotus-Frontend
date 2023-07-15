@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { BrowserStorageTypes } from "./BrowserStorageTypes";
-import IBrowserStorage from "./IBrowserStorage";
+import { IBrowserStorage } from "./IBrowserStorage";
 
 const mapBrowserStorageTypeToStorageMethod = {
   [BrowserStorageTypes.LocalStorage]: localStorage,
