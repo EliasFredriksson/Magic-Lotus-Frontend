@@ -3,10 +3,8 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import "webpack-dev-server";
 import webpack from "webpack";
 import path from "node:path";
-import url from "node:url";
 
 const isProduction = process.env.MODE == "PROD";
-// const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
@@ -25,6 +23,7 @@ const config: webpack.Configuration = {
     host: "localhost",
     port: 3000,
     hot: true,
+    https: true,
   },
   devtool: "source-map",
   plugins: [
@@ -34,7 +33,7 @@ const config: webpack.Configuration = {
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-  ] as any[],
+  ],
   module: {
     rules: [
       {
