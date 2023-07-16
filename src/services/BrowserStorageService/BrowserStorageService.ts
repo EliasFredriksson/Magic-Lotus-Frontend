@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { BrowserStorageTypes } from "./BrowserStorageTypes";
-import { IBrowserStorage } from "./IBrowserStorage";
+import { IBrowserStorageService } from "./IBrowserStorageService";
 
 const mapBrowserStorageTypeToStorageMethod = {
   [BrowserStorageTypes.LocalStorage]: localStorage,
@@ -8,7 +8,7 @@ const mapBrowserStorageTypeToStorageMethod = {
 };
 
 @injectable()
-export default class BrowserStorageService implements IBrowserStorage {
+export default class BrowserStorageService implements IBrowserStorageService {
   setItem = (type: BrowserStorageTypes, key: string, data: any) => {
     const storage = this.getStorage(type);
     const stringifiedData: string = JSON.stringify(data);

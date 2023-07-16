@@ -1,6 +1,7 @@
 export default {
   SERVICES: {
-    IBrowserStorage: Symbol("SERVICES:IBrowserStorage"),
-    IDocumentUtils: Symbol("SERVICES:IDocumentUtils"),
+    IBrowserStorageService: Symbol("SERVICES:IBrowserStorageService"),
+    IDocumentService: Symbol("SERVICES:IDocumentService"),
+    ILanguageService: Symbol("SERVICES:ILanguageService"),
   },
 };

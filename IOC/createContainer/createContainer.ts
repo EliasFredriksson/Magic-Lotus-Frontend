@@ -1,5 +1,6 @@
 import { Container } from "inversify";
 import { registerServices } from "./registerServices";
+import { registerPagePresenters } from "./registerPagePresenters";
 
 const createContainer = (): Container => {
   let container = new Container({
@@ -8,6 +9,7 @@ const createContainer = (): Container => {
   });
 
   container = registerServices(container);
+  container = registerPagePresenters(container);
 
   return container;
 };

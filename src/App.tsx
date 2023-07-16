@@ -1,8 +1,12 @@
 import { FC, useEffect } from "react";
-import { withDependencyInjection } from "../IOC/withDependencyInjection";
-import AppPresenter from "./AppPresenter";
+import { BrowserRouter } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import Landing from "./views/Landing/Landing";
+import { withDependencyInjection } from "../IOC/withDependencyInjection";
+import { DependencyInjectionProvider } from "../IOC/DependencyInjectionContext";
+import AppPresenter from "./AppPresenter";
+import appContainer from "../IOC/container";
+import Router from "./Router";
+import "./theme/global.scss";
 
 interface AppProps {
   presenter: AppPresenter;
@@ -13,18 +17,15 @@ const App: FC<AppProps> = ({ presenter }) => {
     presenter.initializeApplication();
   }, []);
 
-  return (
-    <>
-      {presenter.viewModel.isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <>
-          <h1>{presenter.viewModel.name}</h1>
-          <Landing />
-        </>
-      )}
-    </>
-  );
+  if (presenter.isLoading) {
+    return (
+      <div>
+        <h1>App is initializing...</h1>
+      </div>
+    );
+  }
+
+  return <Router />;
 };
 
 export default withDependencyInjection({

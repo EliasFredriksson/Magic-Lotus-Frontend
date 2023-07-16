@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 import { DependencyInjectionProvider } from "../IOC/DependencyInjectionContext";
 import appContainer from "../IOC/container";
 
@@ -11,7 +11,9 @@ if (!rootElement) {
 }
 const root = createRoot(rootElement);
 root.render(
-  <DependencyInjectionProvider container={appContainer}>
-    <App />
-  </DependencyInjectionProvider>
+  <BrowserRouter>
+    <DependencyInjectionProvider container={appContainer}>
+      <App />
+    </DependencyInjectionProvider>
+  </BrowserRouter>
 );

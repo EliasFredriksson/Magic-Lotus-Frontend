@@ -1,8 +1,8 @@
 import { injectable } from "inversify";
-import { IDocumentUtils } from "./IDocumentUtils";
+import { IDocumentService } from "./IDocumentService";
 
 @injectable()
-export default class DocumentUtilsService implements IDocumentUtils {
+export default class DocumentService implements IDocumentService {
   setTitle = (title: string) => {
     document.title = title;
   };

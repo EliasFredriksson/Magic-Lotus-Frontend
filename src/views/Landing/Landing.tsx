@@ -9,13 +9,10 @@ interface LandingProps {
 }
 
 const Landing: FC<LandingProps> = ({ presenter }) => {
-  useEffect(() => {
-    presenter.init();
-  }, []);
-
   return (
     <div className="view__landing">
       <h1>Hello World! With webpack.</h1>
+      <button onClick={presenter.getLocaleKey}>CLICK ME</button>
     </div>
   );
 };
