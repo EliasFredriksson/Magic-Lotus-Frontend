@@ -16,7 +16,8 @@
     "emitDecoratorMetadata": true,
     "jsx": "react-jsx",
     "rootDir": ".",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["node_modules"],
   "include": ["src"],

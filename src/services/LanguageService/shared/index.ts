@@ -2,7 +2,7 @@ import { LocaleTypes } from "../LocaleTypes";
 
 export default {
   [LocaleTypes.enGB]: {
-    magicLotus: "Magic Lotus",
+    magicLotus: "MagicLotus",
     buttons: {
       ok: "Ok",
       save: "Save",
