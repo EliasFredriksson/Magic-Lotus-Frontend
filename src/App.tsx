@@ -1,11 +1,8 @@
 import { FC, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { withDependencyInjection } from "../IOC/withDependencyInjection";
-import { DependencyInjectionProvider } from "../IOC/DependencyInjectionContext";
 import AppPresenter from "./AppPresenter";
-import appContainer from "../IOC/container";
-import Router from "./Router";
+import AppRoutes from "./AppRoutes";
 import "./theme/global.scss";
 
 interface AppProps {
@@ -25,7 +22,7 @@ const App: FC<AppProps> = ({ presenter }) => {
     );
   }
 
-  return <Router />;
+  return <AppRoutes />;
 };
 
 export default withDependencyInjection({
