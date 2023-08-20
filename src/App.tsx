@@ -25,7 +25,7 @@ const App: FC<AppProps> = ({ presenter }) => {
 
   return (
     <ErrorBoundary>
-      <AppRoutes />;
+      <AppRoutes />
     </ErrorBoundary>
   );
 };

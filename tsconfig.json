@@ -19,7 +19,8 @@
     "jsx": "react-jsx",
     "rootDir": ".",
     "sourceMap": true,
-    "allowUmdGlobalAccess": true
+    "allowUmdGlobalAccess": true,
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["**/node_modules/*", "**/build/*"],
   "include": ["src/**/*.ts", "src/**/*.tsx", ".eslintrc.cjs", "configs"],

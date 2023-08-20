@@ -34,5 +34,6 @@ module.exports = {
   rules: {
     "@typescript-eslint/explicit-function-return-type": RuleOptionTypes.Warning,
     "react/react-in-jsx-scope": RuleOptionTypes.Off,
+    "react/no-unknown-property": [RuleOptionTypes.Error, { ignore: ["css"] }],
   },
 };
