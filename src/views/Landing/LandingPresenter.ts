@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../../../IOC/TYPES";
-import type { ILanguageGateway } from "../../gateways/LanguageGateway/ILanguageGateway";
 import { computed, makeObservable } from "mobx";
+import type { ILanguageGateway } from "../../gateways/LanguageGateway/ILanguageGateway";
 
 interface LocalesVm {
   message: string;
@@ -20,8 +20,7 @@ export default class LandingPresenter {
 
   get localesVm(): LocalesVm {
     return {
-      // message: this.langGateway.get("views:landing.message"),
-      message: "test",
+      message: this.langGateway.get("views:landing.message"),
     };
   }
 }

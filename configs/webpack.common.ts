@@ -5,19 +5,7 @@ import { Configuration, ProvidePlugin } from "webpack";
 const commonConfig: Configuration = {
   entry: path.resolve(__dirname, "../src/index.tsx"),
   resolve: {
-    extensions: [
-      ".wasm",
-      ".ts",
-      ".tsx",
-      ".jsx",
-      ".mjs",
-      ".cjs",
-      ".js",
-      ".json",
-    ],
-    alias: {
-      "@Components": path.resolve(__dirname, "../src/components"),
-    },
+    extensions: [".ts", ".tsx", ".jsx", ".mjs", ".cjs", ".js", ".json"],
   },
   module: {
     rules: [

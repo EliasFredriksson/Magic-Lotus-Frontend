@@ -13,7 +13,4 @@ export const config: Configuration = {
       "process.env.name": JSON.stringify("Vishwas"),
     }),
   ],
-  // stats: {
-  //   all: true,
-  // },
 };
