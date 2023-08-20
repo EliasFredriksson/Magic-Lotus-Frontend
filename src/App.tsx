@@ -3,7 +3,8 @@ import { observer } from "mobx-react-lite";
 import { withDependencyInjection } from "../IOC/withDependencyInjection";
 import AppPresenter from "./AppPresenter";
 import AppRoutes from "./AppRoutes";
-import "./theme/global.scss";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+// import "./theme/global.scss";
 
 interface AppProps {
   presenter: AppPresenter;
@@ -11,7 +12,7 @@ interface AppProps {
 
 const App: FC<AppProps> = ({ presenter }) => {
   useEffect(() => {
-    presenter.initializeApplication();
+    void presenter.initializeApplication();
   }, []);
 
   if (presenter.isLoading) {
@@ -22,7 +23,11 @@ const App: FC<AppProps> = ({ presenter }) => {
     );
   }
 
-  return <AppRoutes />;
+  return (
+    <ErrorBoundary>
+      <AppRoutes />;
+    </ErrorBoundary>
+  );
 };
 
 export default withDependencyInjection({

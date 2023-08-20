@@ -10,4 +10,4 @@ export default {
       confirm: "Yes, i'm sure",
     },
   },
-};
+} as const;

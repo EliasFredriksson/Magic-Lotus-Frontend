@@ -1,17 +1,17 @@
 import { inject, injectable } from "inversify";
 import { computed, makeObservable } from "mobx";
 import TYPES from "../IOC/TYPES";
-import type { ILanguageService } from "./services/LanguageService/ILanguageService";
-import { LocaleTypes } from "./services/LanguageService/LocaleTypes";
-import type { IDocumentService } from "./services/DocumentService/IDocumentService";
+import type { ILanguageGateway } from "./gateways/LanguageGateway/ILanguageGateway";
+import type { IDocumentGateway } from "./gateways/DocumentGateway/IDocumentGateway";
+import { LocaleTypes } from "./gateways/LanguageGateway/LocaleTypes";
 
 @injectable()
 export default class AppPresenter {
-  @inject(TYPES.SERVICES.ILanguageService)
-  private langService: ILanguageService;
+  @inject(TYPES.GATEWAYS.ILanguageGateway)
+  private langService: ILanguageGateway;
 
-  @inject(TYPES.SERVICES.IDocumentService)
-  private documentService: IDocumentService;
+  @inject(TYPES.GATEWAYS.IDocumentGateway)
+  private documentService: IDocumentGateway;
 
   constructor() {
     makeObservable(this, {
@@ -23,9 +23,8 @@ export default class AppPresenter {
     return this.langService.isLoading;
   }
 
-  initializeApplication = async (): Promise<void> => {
+  public initializeApplication = async (): Promise<void> => {
     await this.langService.init(LocaleTypes.enGB);
-    const title = this.langService.get("shared:magicLotus");
-    this.documentService.setTitle(title);
+    this.documentService.setTitle(this.langService.get("shared:magicLotus"));
   };
 }

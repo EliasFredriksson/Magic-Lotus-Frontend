@@ -1,9 +1,10 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, lazy } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
-import Landing from "./views/Landing/Landing";
 import Loader from "./components/Loader/Loader";
 
 const AppRoutes: FC = () => {
+  const Landing = lazy(() => import("./views/Landing/Landing"));
+
   return (
     <Routes>
       <Route

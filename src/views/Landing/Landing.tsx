@@ -12,16 +12,8 @@ interface LandingProps {
 
 const Landing: FC<LandingProps> = ({ presenter }) => {
   return (
-    <Flex direction="column" className="view__landing">
-      <Typography
-        type="h2"
-        css={{
-          color: "blue",
-        }}
-      >
-        Hello World! With webpack.
-      </Typography>
-      <button onClick={presenter.getLocaleKey}>CLICK ME</button>
+    <Flex className="view__landing">
+      <Typography type="h2">{presenter.localesVm.message}</Typography>
       <Loader />
     </Flex>
   );

@@ -1,5 +1,5 @@
 import { Container } from "inversify";
-import { registerServices } from "./registerServices";
+import { registerGateways } from "./registerGateways";
 import { registerPagePresenters } from "./registerPagePresenters";
 
 const createContainer = (): Container => {
@@ -8,7 +8,7 @@ const createContainer = (): Container => {
     defaultScope: "Transient",
   });
 
-  container = registerServices(container);
+  container = registerGateways(container);
   container = registerPagePresenters(container);
 
   return container;

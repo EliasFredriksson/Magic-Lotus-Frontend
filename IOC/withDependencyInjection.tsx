@@ -1,11 +1,13 @@
-import React, { FC, useContext } from "react";
+import React, { FC, ReactElement, useContext } from "react";
 import { DependencyInjectionContext } from "./DependencyInjectionContext";
 
 export const withDependencyInjection = <TIdentifiers,>(
   identifiers: TIdentifiers
 ) => {
   return <TProps,>(Component: FC<TProps>) => {
-    return (props: Omit<TProps, keyof TIdentifiers>) => {
+    return function CompFn(
+      props: Omit<TProps, keyof TIdentifiers>
+    ): ReactElement {
       const { container } = useContext(DependencyInjectionContext);
 
       if (container) {
@@ -24,10 +26,8 @@ export const withDependencyInjection = <TIdentifiers,>(
           {} as TIdentifiers
         );
 
-        // @ts-ignore
         return <Component {...props} {...injectedProps} />;
       }
-      // @ts-ignore
       return <Component {...props} />;
     };
   };

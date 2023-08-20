@@ -1,10 +1,10 @@
 import { FC } from "react";
-import "./Loader.scss";
+// import "./Loader.scss";
 
 const Loader: FC = () => {
   return (
     <div className="loader-component">
-      <div className="loader-component__spinner"></div>
+      <div className="loader-component__spinner">Loader component!</div>
     </div>
   );
 };

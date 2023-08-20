@@ -1,7 +1,10 @@
+$spacing-generator-step: 4;
+$spacing-generator-max: 8;
+
 @mixin generateSpacingRules($selector) {
-  @for $i from 0 to 8 {
-    &-#{calc(4 * ($i + 1))} {
-      #{$selector}: calc(4 * ($i + 1)) px;
+  @for $i from 0 to $spacing-generator-max {
+    &-#{calc($spacing-generator-step * ($i + 1))} {
+      #{$selector}: calc(4 * ($i + 1)) px !important;
     }
   }
 }

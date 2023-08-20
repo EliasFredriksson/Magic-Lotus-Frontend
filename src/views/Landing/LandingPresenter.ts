@@ -1,15 +1,27 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../../../IOC/TYPES";
-import type { ILanguageService } from "../../services/LanguageService/ILanguageService";
+import type { ILanguageGateway } from "../../gateways/LanguageGateway/ILanguageGateway";
+import { computed, makeObservable } from "mobx";
+
+interface LocalesVm {
+  message: string;
+}
 
 @injectable()
 export default class LandingPresenter {
-  @inject(TYPES.SERVICES.ILanguageService)
-  private langService: ILanguageService;
+  @inject(TYPES.GATEWAYS.ILanguageGateway)
+  private langGateway: ILanguageGateway;
 
-  getLocaleKey = () => {
-    const text = this.langService.get("shared:magicLotus");
+  constructor() {
+    makeObservable(this, {
+      localesVm: computed,
+    });
+  }
 
-    console.log("TEXT:\t", text);
-  };
+  get localesVm(): LocalesVm {
+    return {
+      // message: this.langGateway.get("views:landing.message"),
+      message: "test",
+    };
+  }
 }

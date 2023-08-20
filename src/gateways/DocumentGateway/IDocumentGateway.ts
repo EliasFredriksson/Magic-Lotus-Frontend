@@ -1,3 +1,3 @@
-export interface IDocumentService {
+export interface IDocumentGateway {
   setTitle: (title: string) => void;
 }
